@@ -3,9 +3,12 @@ import './Board.css';
 
 class Board extends React.Component {
 
+    ctx;
+
     drawOnCanvas() {
         const canvas = document.querySelector("#board");
-        let ctx = canvas.getContext('2d');
+        this.ctx = canvas.getContext('2d');
+        let ctx = this.ctx;
 
         const sketch = document.querySelector(".sketch");
         let sketch_style = getComputedStyle(sketch);
@@ -15,9 +18,8 @@ class Board extends React.Component {
 
         ctx.fillStyle = "white";
         ctx.fillRect(0,0,canvas.width,canvas.height);
+        ctx.lineWidth = 3;
 
-        let draw_color = "black";
-        let draw_width = "5";
         let is_drawing = false;
 
         canvas.addEventListener("touchstart", start, false);
@@ -42,8 +44,7 @@ class Board extends React.Component {
             if(is_drawing) {
                 ctx.lineTo(event.clientX - canvas.offsetLeft,
                             event.clientY - canvas.offsetTop);
-                ctx.strokeStyle = draw_color;
-                ctx.lineWidth = draw_width;
+
                 ctx.lineCap = "round";
                 ctx.lineJoin = "round";
                 ctx.stroke();
@@ -64,6 +65,11 @@ class Board extends React.Component {
 
     componentDidMount() {
         this.drawOnCanvas();
+    }
+
+    componentWillReceiveProps(newProps) {
+        this.ctx.strokeStyle = newProps.draw_color;
+        this.ctx.lineWidth = newProps.stroke_width;
     }
 
     render() {

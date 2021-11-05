@@ -34,3 +34,17 @@
     margin: 10px;
     border-radius: 50%;
 }
+
+.brush-size-box, .color-picker-box {
+    width: 60px;
+    border: none;
+    margin: 5px;
+}
+
+.brush-size-title, .color-picker-title {
+    font-size: 12px;
+}
+
+#brush-size, #color-pick{
+    width: 98%;
+}
