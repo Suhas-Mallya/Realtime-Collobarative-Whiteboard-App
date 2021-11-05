@@ -1,6 +1,6 @@
 .sketch {
-    width: 97vw;
-    height: 87vh;
+    width: 99vw;
+    height: 88vh;
 }
 
 #board {
@@ -9,6 +9,6 @@
 }
 
 canvas {
-    box-shadow: -3px 2px 5px 4px black;
+    box-shadow: -2px 2px 5px 4px black;
     cursor: pointer;
 }

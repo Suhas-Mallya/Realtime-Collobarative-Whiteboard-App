@@ -19,7 +19,7 @@ class Container extends React.Component {
     }
 
     change_stroke = () => {
-        const brush_size = document.querySelector("#brush-size");
+        const brush_size = document.querySelector("#size");
         this.setState({
             stroke_width: brush_size.value
         });
@@ -32,6 +32,12 @@ class Container extends React.Component {
         });
     }
 
+    erase = () => {
+        this.setState({
+            draw_color: "white"
+        })
+    }
+
     render() {
         console.log(this.state.draw_color);
         return (
@@ -39,6 +45,7 @@ class Container extends React.Component {
                 <Toolbar changeColor = {this.change_color}
                         changeBrushSize = {this.change_stroke}
                         pickColor = {this.pickColor}
+                        erase = {this.erase}
                 />
                 <Board  draw_color={this.state.draw_color}
                         stroke_width={this.state.stroke_width}

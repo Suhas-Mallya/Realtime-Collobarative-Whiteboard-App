@@ -9,6 +9,7 @@ import './Toolbar.css';
                 <div className="leftpanel">
                     <i className="fas fa-undo-alt"></i>
                     <i className="fas fa-trash-alt"></i>
+                    <i className="fas fa-eraser" onClick={() => this.props.erase()}></i>
                 </div>
                 <div className="middlepanel">
                     <span><b>Collobarative WhiteBoard</b></span>
@@ -19,17 +20,19 @@ import './Toolbar.css';
                     <div onClick={() => this.props.changeColor("blue")} className="color-field" style={{background: "blue"}}></div>
                     <div onClick={() => this.props.changeColor("green")} className="color-field" style={{background: "green"}}></div>
 
-                    <fieldset className="brush-size-box">
-                        <legend className="brush-size-title"> Brush Size </legend>
-                        <select id="brush-size" onChange={() => this.props.changeBrushSize()}>
+                    <fieldset className="size-box">
+                        <legend className="size-title"> SIZE </legend>
+                        <select id="size" onChange={() => this.props.changeBrushSize()} >
                             <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="3" selected>3</option>
                             <option value="5">5</option>
                             <option value="8">8</option>
                             <option value="10">10</option>
                             <option value="12">12</option>
                             <option value="15">15</option>
                             <option value="20">20</option>
+                            <option value="50">50</option>
+                            <option value="100">100</option>
                         </select>
                     </fieldset>
                     <fieldset className="color-picker-box">
